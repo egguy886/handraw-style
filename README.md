@@ -4,6 +4,12 @@
 
 # 手绘风格与排版图型提示词库（Hand-drawn Style & Layout Prompter）
 
+<p align="center">
+  <a href="https://hellogithub.com/repository/yang0/handraw-style" target="_blank">
+    <img src="https://api.hellogithub.com/v1/widgets/recommend.svg?rid=da31f932a6ef446fa2608d20f09c9be9&claim_uid=8adohGgCW07fknL" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" />
+  </a>
+</p>
+
 > **不会描述画风？排不好版面构图？选个编号，一键生成极具辨识度的 AI 生图提示词。**
 
 本项目整理了 **001–324 种手绘风格**、**161 种排版图型**（社媒卡、信息图、漫画分镜、IP设计、电商）与 **36 种经典单色主题色**。

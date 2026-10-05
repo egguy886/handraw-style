@@ -4,6 +4,12 @@
 
 # Hand-drawn Style & Layout Prompter for AI Image Generation
 
+<p align="center">
+  <a href="https://hellogithub.com/repository/yang0/handraw-style" target="_blank">
+    <img src="https://api.hellogithub.com/v1/widgets/recommend.svg?rid=da31f932a6ef446fa2608d20f09c9be9&claim_uid=8adohGgCW07fknL" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" />
+  </a>
+</p>
+
 > **Struggling to describe art styles? Trouble structuring visual layouts? Simply pick an index number to generate highly recognizable AI image prompts.**
 
 This repository curates **324 distinct hand-drawn illustration styles** (`001`–`324`), **161 composition layout patterns** (`SC-*` Social Cards, `IG-*` Infographics, `SB-*` Comic Storyboards, `IP-*` IP Design, `EC-*` E-commerce), and **36 curated classic monochrome colors** (`C-01`–`C-36`).
