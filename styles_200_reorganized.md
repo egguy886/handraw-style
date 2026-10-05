@@ -590,6 +590,8 @@
 
 | FG-017 · 吉卜力 / Studio Ghibli | Studio Ghibli Nostalgic Hand-Drawn Cel Anime & Painterly Landscape | 参考吉卜力动画风格 |
 
+| FG-018 · 小疯映画《刺客伍六七》 / Scissor Seven (Sharefun Studio) | Scissor Seven Season 1 Anime Style, Simple Composition, Highly Generalized Character Design | 参考风格：小疯映画的刺客伍六七第一季，构图简单，角色高度概括 |
+
 ## FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts
 
 | 编号 / 原参考名称 | 生图名称 | 核心视觉特征 |
