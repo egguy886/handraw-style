@@ -1,6 +1,6 @@
 ---
 name: article-illustration-planner
-description: 深度分析文章脉络，精准规划插图点位与视觉意象，生成协同 324 种手绘风格与 36 种色彩画廊的高质量生图提示词。出具方案后主动引导用户进行【方式 A · 自主生图回填】或【方式 B · 全自动生图插入】，并支持将生成的配图精准自动排版回文章 Markdown。
+description: 深度分析文章脉络，精准规划插图点位与视觉意象。对知识类/教程类文章默认启动“认知降负与视觉替换机制”，将复杂抽象概念/流程/决策树提炼为高信息量图示并精炼替换冗长文字；对非知识类文章保持叙事氛围与意境。严格防止开篇扎堆，生成协同 324 种手绘风格与 36 种色彩画廊的高质量生图提示词，支持自主生图或全自动插图回填排版。
 ---
 
 # Article Illustration Planner (文章配图规划与插图回填)
@@ -55,20 +55,29 @@ Separate these two decisions:
 
 ---
 
-# Default Behavior
+# Default Behavior & Article-Type Adaptation (分类自适应工作模式)
 
-Default to **Preserve mode**.
+Skill 必须首先判断文章类型，并自动适配两套截然不同的工作模式：
 
-In Preserve mode:
+## 模式 A：知识/干货/教程/实操类文章 (Knowledge & Explanatory Articles)
+> **核心使命：认知降负与文字替换机制（Cognitive Load Reduction & Text Replacement）**
 
-* do not rewrite the article;
-* do not delete article content;
-* identify suitable insertion points;
-* design illustrations that supplement the existing text.
+1. **配图的核心价值在于“降低认知负荷，辅助理解”**：
+   - 知识类文章的最大痛点是枯燥复杂的机制推导、层级漏斗与多分支规则。配图决不能是与业务无关的童话装饰小品；
+   - 重点识别文章中**用文字表达相对复杂、抽象、嵌套、读者理解成本极高**的概念（例如：多维加权算法公式、阶梯流量池跃迁漏斗、长篇 ASCII 字符图表、爆款封面反差模型、多分支数据诊断决策树、多 SKU 价格锚定矩阵等）。
+2. **文字替换原则（强制替换与精炼，对文章做必要修改）**：
+   - 必须将上述复杂概念提炼设计为高信息密度的**概念图、流程图或对比图（conceptual / process / comparison diagram）**；
+   - **记住是替换，对文章必须进行修改精简**：在最终回填排版时，将原先繁琐冗长的文字推导或复杂图表直接替换为**“配图 + 极简核心提要/行动清单”**，真正做到“一图胜千言”，大幅为读者减轻认知负担。
+3. **点位排布与防堆叠红线（Anti-Clustering Pacing Rules）**：
+   - **严禁开篇堆叠**：严禁在目录后、前言后、第一章首段前连续插入多张图（相邻两张图之间严禁少于 300~500 字，必须有完整的实质性正文承载）；
+   - **严禁中后段断档**：配图必须均匀分布在全篇真正具有高认知负荷的章节节点（如核心 SOP、诊断决策），杜绝“前密后空/头重脚轻”；
+   - **严禁图意倒挂**：插图必须紧跟在所阐述的具象概念/子标题之后，紧密承接上文。
 
-Only modify, shorten, replace, or reorganize article text when the user explicitly requests or accepts **Visual Rewrite mode**.
+## 模式 B：非知识类文章（抒情散文、叙事故事、随笔、小说等） (Non-Knowledge Articles)
+> **核心原则：意境烘托与保全模式（Preserve Mode & Atmospheric Resonance）**
 
-The normal first response is an illustration plan, generation prompts, and the dual-track Call-to-Action (CTA).
+1. **保留原文不删改**：保持 Preserve mode，不强求替换或删改原文文字；
+2. **风格可保持现有艺术探索**：可自由使用手绘隐喻、叙事微距、跨媒介微缩摄影等视觉风格，重点在于烘托情绪、营造意境与提供阅读视觉停顿。
 
 ---
 
@@ -79,7 +88,7 @@ The normal first response is an illustration plan, generation prompts, and the d
 - Always support absolute Windows paths cleanly.
 
 ### 2. Style & Color
-- Style range: `#001`–`#312` from the local hand-drawn style library.
+- Style range: `#001`–`#324` from the local hand-drawn style library.
 - Color palette: `C-01`–`C-36` from the 36 classic theme color gallery.
 - Dynamic aesthetic reasoning: If user doesn't specify, analyze domain, mood, and tone to recommend the most expressive style and color palette.
 
@@ -94,50 +103,6 @@ The normal first response is an illustration plan, generation prompts, and the d
 - **多 (High)**: Appends `【大量留白，场景只显示必要部分，不要显示全】` / `[generous whitespace, show only essential elements of the scene, do not display the full context]` to the visual prompt.
 
 ---
-
-# Modes
-
-## Preserve Mode
-
-Default mode.
-
-Keep the article unchanged.
-
-Illustrations may:
-
-* establish atmosphere;
-* create visual pauses;
-* reinforce an important idea;
-* make an abstract idea concrete;
-* explain a difficult concept;
-* visualize a process or relationship;
-* create a visual transition;
-* strengthen the ending.
-
-The images supplement the article rather than replacing it.
-
----
-
-## Visual Rewrite Mode
-
-Use only when requested or clearly approved by the user.
-
-The Skill may selectively:
-
-* shorten repetitive passages;
-* remove text that can be communicated more effectively through an image;
-* convert explanatory prose into a visual relationship;
-* turn long comparisons into visual comparisons;
-* convert processes into visual sequences;
-* reorganize a small section around an illustration.
-
-Preserve the author's meaning, tone, and argument.
-
-Do not rewrite the whole article simply because rewriting is allowed.
-
-Prefer the smallest textual intervention that creates a meaningful improvement.
-
-Never remove information whose precision is important and difficult to preserve visually (exact definitions, numbers, dates, legal or technical wording, important qualifications, source attribution, factual distinctions).
 
 ---
 
@@ -245,7 +210,7 @@ The prompt structure:
 1. **图片类型 / Image type**: `图片类型：{image_type}。` / `Image type: {image_type}.`
 2. **主题与核心视觉意象**: Dominant visual idea, key subjects, environmental storytelling.
 3. **留白修饰**: If `适中`, append `【大量留白】` / `[generous whitespace]`. If `多`, append `【大量留白，场景只显示必要部分，不要显示全】` / `[generous whitespace, show only essential elements of the scene, do not display the full context]`.
-4. **画风与色彩基调**: Hand-drawn style definition from `#001`–`#312` and theme color from `C-01`–`C-36`.
+4. **画风与色彩基调**: Hand-drawn style definition from `#001`–`#324` and theme color from `C-01`–`C-36`.
 
 ---
 
@@ -276,6 +241,12 @@ editorial illustration / metaphorical illustration / conceptual diagram ...
 
 **图文关系 / Relationship to Text:**
 supplements text / explains text / visually summarizes text / replaces part of text
+
+**（知识类文章必填）被图片替换/精简的复杂文字 / Text to Replace:**
+`[直接标明原文中被该图片替代/精简掉的冗长推演、复杂层级或长篇ASCII字符图表]`
+
+**（知识类文章必填）精简后的轻量导读 / Simplified Replacement Text:**
+`[文字替换后在正文中保留的极简核心要点/行动清单，大幅减轻认知负担]`
 
 **画风与配色 / Style & Color:**
 `#{style_number} · {style_name}` + `{color_id} · {color_name}`
@@ -345,7 +316,7 @@ When the user triggers Track B (e.g. "全自动生图", "帮我生成并插入",
    - For each planned Illustration N in sequential order:
      - Call the image generation tool (`generate_image`) using the finalized prompt.
      - Specify aspect ratio `4:3` (unless customized by user).
-     - Maintain strict style `#001`–`#312` and color consistency.
+     - Maintain strict style `#001`–`#324` and color consistency.
 3. **Asset Organization**:
    - Save each generated image to `<article_dir>/images/illus_01.webp`, `illus_02.webp`, etc.
 4. **Automatic Insertion & Assembly**:
@@ -356,6 +327,7 @@ When the user triggers Track B (e.g. "全自动生图", "帮我生成并插入",
      ![插图N: 说明](images/illus_0N.webp)
      *▲ 图N：说明*
      ```
+   - **知识类文章执行文字替换与精炼**：若规划中指定了“被图片替换的复杂文字”，自动将该段繁琐文字修剪替换为规划中的极简说明/清单，确保图文排版真正实现认知减负。
    - Save the finalized document as `[article_name]_illustrated.md` (or write in-place if requested).
 5. **Final Presentation**:
    - Provide a brief summary table of generated illustrations.
