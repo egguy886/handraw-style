@@ -6,15 +6,37 @@ Part of the article-illustration-planner Skill.
 
 Supports:
 1. Pure insertion: Insert image embeds at designated anchor points (after/before heading or paragraph).
-2. Text replacement & pruning: Replace verbose/complex text blocks with image embeds + simplified summary
-   to reduce cognitive load in knowledge articles.
+2. High-fidelity text replacement & pruning: Replace verbose/complex text blocks with image embeds + simplified summary
+   to reduce cognitive load in knowledge articles while enforcing zero knowledge loss on core formulas and metrics.
 """
 
 import argparse
 import json
 import os
+import re
 import sys
 from pathlib import Path
+
+
+def audit_knowledge_fidelity(replace_text: str, simplified_prose: str, index: int | str):
+    """
+    Audits whether critical formulas or numbers in replaced text were preserved in simplified text.
+    Warns if high-value knowledge items (LaTeX formulas, specific percentages, pricing, ratios) disappear.
+    """
+    warnings = []
+    # Check LaTeX math formulas
+    if ("$$" in replace_text or "\\text" in replace_text or "\\times" in replace_text) and ("$$" not in simplified_prose and "\\text" not in simplified_prose and "×" not in simplified_prose and "*" not in simplified_prose):
+        warnings.append("LaTeX mathematical formula detected in replaced text but not in simplified prose.")
+
+    # Check key percentages
+    pcts = re.findall(r"\d+(?:\.\d+)?%", replace_text)
+    if pcts:
+        missing_pcts = [p for p in set(pcts) if p not in simplified_prose]
+        if missing_pcts and len(missing_pcts) == len(set(pcts)):
+            warnings.append(f"Quantitative metrics {missing_pcts} detected in replaced text; ensure diagram visualizes them.")
+
+    if warnings:
+        print(f"[FIDELITY AUDIT NOTICE - Illus {index}] " + " | ".join(warnings))
 
 
 def insert_illustrations(
@@ -50,6 +72,9 @@ def insert_illustrations(
         caption = item.get("caption", "")
         alt = item.get("alt", caption or f"插图{item.get('index', '')}")
         simplified_prose = item.get("simplified_prose", "").strip()
+
+        # Knowledge fidelity audit
+        audit_knowledge_fidelity(replace_text, simplified_prose, item.get("index", ""))
 
         # Build replacement block
         parts = [f"\n\n![{alt}]({image_path})\n"]

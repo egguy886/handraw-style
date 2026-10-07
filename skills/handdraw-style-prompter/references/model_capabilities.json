@@ -680,11 +680,19 @@
         "FG-018": {
           "name_activation": "weak",
           "traits_activation": "strong"
+        },
+        "FG-020": {
+          "name_activation": "weak",
+          "traits_activation": "strong"
         }
       }
     }
   },
   "FG-019": {
+    "name_activation": "weak",
+    "traits_activation": "strong"
+  },
+  "FG-020": {
     "name_activation": "weak",
     "traits_activation": "strong"
   }
