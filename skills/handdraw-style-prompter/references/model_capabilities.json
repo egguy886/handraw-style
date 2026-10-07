@@ -683,5 +683,9 @@
         }
       }
     }
+  },
+  "FG-019": {
+    "name_activation": "weak",
+    "traits_activation": "strong"
   }
 }
