@@ -596,6 +596,8 @@
 
 | FG-020 · 复古青年漫画与美式叙事插画 / Retro Seinen Manga & American Narrative Illustration | Retro Seinen Manga Line Art, American Narrative Illustration, Digital Cel Shading | 复古漫画、半写实人物、日式青年漫画线稿、美式叙事插画、暖色低饱和、手绘墨线、复古纸张纹理、夸张表情、动态速度线、数字赛璐璐上色。 |
 
+| FG-021 · 韩漫webtoon / Korean Webtoon | Korean Webtoon |  |
+
 ## FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts
 
 | 编号 / 原参考名称 | 生图名称 | 核心视觉特征 |
